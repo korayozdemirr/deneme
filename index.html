@@ -7,7 +7,9 @@
     <title>Document</title>
     <script src="https://cdn.socket.io/4.1.2/socket.io.min.js" integrity="sha384-toS6mmwu70G0fw54EGlWWeA4z3dyJ+dlXBtSURSKN4vyRFOcxd3Bzjj/AoOwY+Rg" crossorigin="anonymous"></script>
     <script>
-        const socket = io.connect();
+        const socket = io({
+  transports: ["websocket", "polling"] // use WebSocket first, if available
+});
         var isim = prompt("Lütfen isminizi giriniz");
         socket.emit("gonder", isim);
 
